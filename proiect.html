@@ -1,0 +1,46 @@
+<html>
+<body>
+<input type="number" id="nr1">
+<select id="operatie">
+	<option value="+">+</option>
+	<option value="-">-</option>
+	<option value="*">*</option>
+	<option value="/">/</option>
+</select>
+
+<input name="number" id="nr2">
+
+<button onclick="Obj.op()">Calculeaza</button><br>
+=<ul id="uol"></ul>
+
+<script>
+class operation {
+
+constructor(a,b,c){
+this.a=a;
+this.b=b;
+this.c=c;
+}
+
+	op(){
+	let a=document.getElementById("nr1").value;
+	let b= document.getElementById("nr2").value;
+	let c= document.getElementById("operatie").value;
+	let s = 0;
+	switch(c){
+		case '+': s=parseInt(a)+parseInt(b); break;
+		case '-': s=parseInt(a)-parseInt(b); break;
+		case '*': s=parseInt(a)*parseInt(b); break;
+		case '/': s=parseInt(a)/parseInt(b); break;
+	}
+let html=document.getElementById("uol").innerHTML += `<li> ${a} ${c} ${b}=${s }</li>`;
+}
+}
+var Obj = new operation(); 
+Obj.op();
+
+
+
+</script>
+</body>
+</html>
